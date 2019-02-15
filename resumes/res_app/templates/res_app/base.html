@@ -1,0 +1,33 @@
+<!--
+#################################################################
+teamplates/base.html
+#################################################################
+The outer most Django template, mostly just used to import common static files.
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{title|default:"Resumes"}}</title>
+  </head>
+
+  <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat" rel="stylesheet">
+
+  {% block more_style %}
+  <!-- Additional Style Rules can be loaded here -->
+  {% endblock %}
+  <body>
+    {% block main %}
+    <!-- Most content will be loaded here. -->
+    {% endblock %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% block more_scripts %}
+    <!-- Additional Javascript can be loaded here -->
+    {% endblock %}
+  </body>
+</html>

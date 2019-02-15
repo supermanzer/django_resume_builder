@@ -1,0 +1,47 @@
+<!--
+#################################################################
+res_app/index.html
+#################################################################
+The home page for the resume application
+-->
+{% extends "res_app/base.html" %}
+
+{% load static %}
+
+{% block more_style %}
+  <link rel="stylesheet" href="{% static 'res_app/css/index.css' %}">
+{% endblock %}
+
+{% block main %}
+  <main>
+    <nav>
+      <div class="nav-wrapper indigo darken-3">
+        <a href="" class="brand-logo">Resume Builder</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="/admin"><i class="material-icons">build</i></a></li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger left hide-on-large-and-up"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <ul id="slide-out" class="sidenav">
+      <li><a href="/admin"><i class="material-icons">build</i> Builder Interface</a></li>
+    </ul>
+    <div class="container">
+      <div class="js-load-div" data-url="{% url 'res_app:resume-list' %}">
+        <!-- Resues loaded here -->
+      </div>
+    </div>
+
+  </main>
+{% endblock %}
+
+{% block more_scripts %}
+  <script src="{% static 'res_app/js/index.js' %}" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', function () {
+      resApp.loadDivs()
+      M.AutoInit();
+    })
+  </script>
+{% endblock %}

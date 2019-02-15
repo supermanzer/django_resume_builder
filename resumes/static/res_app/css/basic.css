@@ -1,0 +1,130 @@
+/*
+======================================================================
+static/res_app/css/basic.css
+======================================================================
+Style rules for our basic Resume template
+*/
+
+/*
+-------------------------------------------------
+      Section Style Rules
+------------------------------------------------
+*/
+
+
+/*
+---------------------------------------------------------
+    Typography Style Rules
+--------------------------------------------------------
+*/
+
+.contact-info {
+  padding: 0.04rem;
+  margin: 0.1rem;
+  font-size: 12px;
+}
+
+.tight-y {
+  padding-top: 0.05rem;
+  padding-bottom: 0.05rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.05rem;
+
+}
+
+.bottom-b {
+  border-bottom: black 2px solid;
+}
+
+.x-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/*
+--------------------------------------------------
+        Element specific style rules
+--------------------------------------------------
+*/
+
+ul.inner-list li {
+  list-style-type: square;
+  margin-left: 2rem;
+}
+div.ksas{
+  margin-left: 4rem;
+  margin-right: 4rem;
+  padding-left: 2em;
+  padding-right: 2em;
+  border-left: indigo 4px solid;
+  border-right: indigo 4px solid;
+}
+div.emp-details {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-left: 2px solid black;
+}
+/*
+-------------------------------------------------
+    Width and Heigh classes
+------------------------------------------------
+*/
+.w-100 {
+  width: 100%
+}
+.w-90 {
+  width: 90%
+}
+.w-80 {
+  width: 80%
+}
+.w-70 {
+  width: 70%
+}
+
+.mt-0 {
+  margin-top: 0rem;
+}
+.mt-1 {
+  margin-top: 1rem;
+}
+.mt-2 {
+  margin-top: 2rem;
+}
+.mt-3 {
+  margin-top: 3rem;
+}
+/*
+-----------------------------------------------
+    Gradient Style Rules
+-----------------------------------------------
+*/
+.gd-coolsky {
+  background: #2980B9;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.gd-rainblue {
+  background: #00F260;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.gd-paleblue {
+  background: #74ebd5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.gd-palegrey {
+  background: linear-gradient(to right, #c2c2c2, #f2f2f2);
+}
+.gd-aquadark {
+  background-image: linear-gradient( 135deg, #92FFC0 10%, #002661 100%);
+}
+.gd-lblue {
+  background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
+}
+.gd-steel {
+  background: linear-gradient(to right, #666666, #F2F2F2);
+}

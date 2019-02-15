@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+
+  app:
+    container_name: resume_app
+    build: .
+    volumes:
+      - ./resumes/:/code
+    ports:
+      - '8123:8123'
+      - '8765:8765'
+    command: python3 manage.py runserver 0.0.0.0:8123

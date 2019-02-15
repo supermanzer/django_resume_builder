@@ -1,0 +1,24 @@
+<!--
+#################################################################
+res_app/resume_list.html
+#################################################################
+This template renders a list of available resumes for exporting to PDFs
+-->
+{% for person in user_list  %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Resumes for {{person.get_full_name}}</span>
+    <ul class="collection">
+      {% for resume in person.resume_set.all  %}
+        <li class="collection-item">
+          <div>
+            <h5 class="indigo-text text-darken-3">
+                {{resume.name|capfirst}} <a href="{% url 'res_app:res-preview' pk=resume.id %}" class="secondary-content"><i class="material-icons">find_in_page</i></a> <a href="{{resume.get_absolute_url}}" target="" class="secondary-content"><i class="material-icons">picture_as_pdf</i></a>
+            </h5>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endfor %}

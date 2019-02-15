@@ -1,0 +1,142 @@
+<!--
+#################################################################
+res_app/resume_templates/basic.html
+#################################################################
+The first resume template testing out the capabilities of HTML
+formatting for resumes
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{% static 'res_app/css/basic.css' %}">
+  </head>
+  <body>
+    <header class="w-100 gd-steel {% if not resume.summaery %} bottom-b{% endif %}">
+      <!-- Contact Information Here -->
+      <div class="row w-80">
+        <div class="col s8">
+          <h3 class="indigo-text text-darken-4 tight-y">
+            {{resume.person.first_name}}
+          </h3>
+          <h3 class="indigo-text text-darken-4 tight-y">
+            {{resume.person.last_name}}
+          </h3>
+        </div>
+        <div class="col s4">
+          <h5 class="indigo-text text-darken-4S tight-y">Contact Info</h5>
+          {% if resume.person.contactinfo_set.first.address.street_1 %}
+          <p class="contact-info">
+            {{resume.person.contactinfo_set.first.address.street_1}}, {% if resume.person.contactinfo_set.first.address.street_2 %}{{resume.person.contactinfo_set.first.address.street_2}}{% endif %}
+          </p>
+          {% endif %}
+          {% if resume.person.contactinfo_set.first.address.street_3 %}
+          <p class="contact-info">
+            {{resume.person.contactinfo_set.first.address.street_3}}
+          </p>
+          {% endif %}
+          {% if resume.person.contactinfo_set.first.address.city %}
+          <p class="contact-info">
+          {{resume.person.contactinfo_set.first.address.city}}{% if resume.person.contactinfo_set.first.address.state %}, {{resume.person.contactinfo_set.first.address.state}}
+          {% endif %} {% if resume.person.contactinfo_set.first.address.zip_code %}
+          {{resume.person.contactinfo_set.first.address.zip_code}}
+          {% endif %}
+          </p>
+          {% endif %}
+          {% if resume.person.contactinfo_set.first.email %}
+          <p class="contact-info"><a href="mailto:{{resume.person.contactinfo_set.first.email}}">{{resume.person.contactinfo_set.first.email}}</a></p>
+          {% endif %}
+          {% for pnum in resume.person.contactinfo_set.first.phone_numbers.all  %}
+             {% if forloop.first %}
+
+             {% endif %}
+                 <p class="contact-info">{{pnum.phone_number}} - {{pnum.get_type_display}}</p>
+             {% if forloop.last %}
+
+             {% endif %}
+          {% empty %}
+
+          {% endfor %}
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Summary Sectio - Bordered -->
+      {% if resmue.summary %}
+      <div class="row summary">
+        <p>{{resume.summary}}</p>
+      </div>
+      {% else %}
+
+      {% endif %}
+      <div class="row ksas-projects">
+        <div class="col s6">
+          {% for ksa in resume.ksas.all  %}
+             {% if forloop.first %}
+
+                <h6 class="indigo-text text-darken-4 center gd-steel">
+                  Knowledge, Skills, and Abilities
+                </h6>
+                <ul class="outer-list">
+             {% endif %}
+                  <li><b>{{ksa.name}} - {{ksa.years}} Years</b></li>
+                  <ul class="inner-list">
+                    <li>{{ksa.description|truncatechars:100}}</li>
+                  </ul>
+             {% if forloop.last %}
+                </ul>
+             {% endif %}
+          {% empty %}
+
+          {% endfor %}
+        </div>
+        <div class="col s6">
+          {% for proj in resume.projects.all %}
+             {% if forloop.first %}
+                <h6 class="indigo-text text-darken-4 center gd-steel">Projects</h6>
+                <ul class='projects'>
+             {% endif %}
+                <li>
+                  <span class="mt-1"><b class="left-align">{{proj.name}}</b>  <a href="{{proj.url}}" class="right-align">{{proj.url}}</a></span>
+
+                  <p class="tight-y">{{proj.description}}</p>
+                </li>
+             {% if forloop.last %}
+                </ul>
+             {% endif %}
+          {% empty %}
+
+          {% endfor %}
+
+        </div>
+      </div>
+
+      {% for emp in resume.employment_histories.all  %}
+         {% if forloop.first %}
+            <div class="row emps">
+              <h6 class="center indigo-text text-darken-4 gd-steel">Employment History</h6>
+         {% endif %}
+            <div class="row emp">
+              <div class="col s3 emp-dates center">
+                <p>{{emp.get_start_date}}</p>
+                <p class='date-divider'></p>
+                <p>{{emp.get_end_date}}</p>
+              </div>
+              <div class="col s9 emp-details">
+                <p class="company_name">{{emp.employer}}</p>
+                <p class="position">{{emp.position}}</p>
+                <p class="duties">{{emp.description}}</p>
+              </div>
+            </div>
+         {% if forloop.last %}
+          </div>
+         {% endif %}
+      {% empty %}
+
+      {% endfor %}
+    </main>
+  </body>
+</html>

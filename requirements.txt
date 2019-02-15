@@ -1,0 +1,6 @@
+# Python Packages for Resmue App
+
+django
+django-weasyprint
+django-jsonview
+ipython
