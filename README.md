@@ -7,3 +7,9 @@ This was born out of a desire to leverage relational database techniques to make
 
 If you want to play around with this application you will need to have `docker` and `docker-compose` installed.  Once those requirements are met simply follow these directions:
 
+```
+git clone git@github.com:supermanzer/django_resume_builder.git .
+docker-compose up -d --build
+```
+
+Then simply navigate to `localhost:8123` to start building your resume~
