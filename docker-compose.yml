@@ -10,4 +10,4 @@ services:
     ports:
       - '8123:8123'
       - '8765:8765'
-    command: python3 manage.py runserver 0.0.0.0:8123
+    command: ./start_app.sh

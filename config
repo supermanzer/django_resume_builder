@@ -1,0 +1,4 @@
+[SETTINGS]
+file_ext = .py, .js
+
+dirs_to_ignore = admin
