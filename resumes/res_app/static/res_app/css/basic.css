@@ -4,7 +4,9 @@ static/res_app/css/basic.css
 ======================================================================
 Style rules for our basic Resume template
 */
-
+html {
+  font-family: sans-serif;
+}
 /*
 -------------------------------------------------
       Section Style Rules

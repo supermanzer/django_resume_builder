@@ -13,9 +13,9 @@ The home page for the resume application
 {% endblock %}
 
 {% block main %}
-  <main>
+  <main class="dark-trans-50">
     <nav>
-      <div class="nav-wrapper indigo darken-3">
+      <div class="nav-wrapper dark-trans-50">
         <a href="" class="brand-logo">Resume Builder</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="/admin"><i class="material-icons">build</i></a></li>
@@ -26,8 +26,8 @@ The home page for the resume application
     <ul id="slide-out" class="sidenav">
       <li><a href="/admin"><i class="material-icons">build</i> Builder Interface</a></li>
     </ul>
-    <div class="container">
-      <div class="js-load-div" data-url="{% url 'res_app:resume-list' %}">
+    <div class="container h-90">
+      <div class="js-load-div valign-wrapper h-80" data-url="{% url 'res_app:resume-list' %}">
         <!-- Resues loaded here -->
       </div>
     </div>

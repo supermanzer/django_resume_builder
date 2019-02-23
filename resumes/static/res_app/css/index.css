@@ -4,3 +4,57 @@ res_app/static/css/index.css
 =======================================================================
 Custom style rules for the Resume Build application
 */
+
+.dark-trans-50 {
+  background: rgba(0, 0, 0, 0.5);
+}
+.dark-trans-25 {
+  background: rgba(0, 0, 0, 0.25);
+}
+.dark-trans-75 {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body {
+  background: url('/static/res_app/images/GGB_Arial.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+nav {
+  background-color: transparent;
+}
+
+html, body, main {
+  height: 100%;
+}
+footer.black-footer {
+  height: 2rem;
+  color: black;
+}
+.h-100 {
+  height: 100%;
+}
+
+.h-90 {
+  height: 90%;
+}
+.h-80 {
+  height: 80%;
+}
+.h-70 {
+  height: 70%;
+}
+
+.w-100 {
+  width: 100%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-70 {
+  width: 70%;
+}

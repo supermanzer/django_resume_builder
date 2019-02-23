@@ -27,6 +27,13 @@ class ResumeModelView(generic.DetailView):
     def get_template_names(self):
         return self.object.template_name
 
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['skills'] = models.KSA.objects.filter(type='sk')
+        context['tech'] = models.KSA.objects.filter(type='tc')
+
+        return context
+
 class ResumePrinter(WeasyTemplateResponseMixin, ResumeModelView):
     """
     This view generates the PDF of the resume template
@@ -34,7 +41,7 @@ class ResumePrinter(WeasyTemplateResponseMixin, ResumeModelView):
     pdf_attachment=False
     pdf_filename = 'resume.pdf'
 
-    
+
     def get_pdf_stylesheets(self):
         return [
         settings.STATIC_ROOT + '/res_app/css/' + self.object.css_file_name, ]

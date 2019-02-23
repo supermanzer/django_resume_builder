@@ -5,7 +5,7 @@ res_app/resume_list.html
 This template renders a list of available resumes for exporting to PDFs
 -->
 {% for person in user_list  %}
-<div class="card">
+<div class="card w-100">
   <div class="card-content">
     <span class="card-title">Resumes for {{person.get_full_name}}</span>
     <ul class="collection">

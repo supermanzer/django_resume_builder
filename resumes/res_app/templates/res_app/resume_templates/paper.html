@@ -1,0 +1,59 @@
+<!--
+#################################################################
+res_app/resume_templates/paper.html
+#################################################################
+A resume template based on the example provided by Tom Barr in https://github.com/Tombarr/html-resume-template/
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'res_app/css/paper.css' %}">
+    <link rel="stylesheet" href="{% static 'res_app/css/typography.css' %}">
+  </head>
+  <body>
+    <section class="sheet">
+      <aside class="grey lighten-2">
+        <section class="contact-info">
+          <h6 class="contact">Contact</h6>
+            <ul class="blank">
+              <li><i class="fas fa-map-marker-alt"></i> {{resume.person.contactinfo_set.first.address.city}}{% if resume.person.contactinfo_set.first.address.state %}, {{resume.person.contactinfo_set.first.address.state}}
+              {% endif %}</li>
+              {% if resume.person.contactinfo_set.first.email %}
+              <li><i class="fas fa-envelope"></i> <a href="mailto:{{resume.person.contactinfo_set.first.email}}">{{resume.person.contactinfo_set.first.email}}</a></li>
+              {% endif %}
+            </ul>
+        </section>
+        <section class="ksas">
+          <h6 class="ksas"></h6>
+        </section>
+
+      </aside>
+      <section class="main">
+        <header>
+        <text class="name">  {{resume.person.first_name}} {{resume.person.last_name}} </text>
+        <text class="headline">{{resume.headline}}</text>
+        <hr>
+        </header>
+        {% if resume.summary %}
+          <section class="summary"></section>
+        {% endif %}
+        <secion class="experience">
+          {% for emp in resume.employment_histories.all  %}
+             {% if forloop.first %}
+              <h5>Experience</h5>
+             {% endif %}
+              <span><h6 class='left'>{{emp.employer}}</h6><text class="right"></text></span>
+             {% if forloop.last %}
+              <hr>
+             {% endif %}
+          {% empty %}
+
+          {% endfor %}
+        </secion>
+      </section>
+    </section>
+  </body>
+</html>

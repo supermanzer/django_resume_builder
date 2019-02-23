@@ -36,3 +36,8 @@ class ResumeAdmin(admin.ModelAdmin):
 class ProjectAdmin(admin.ModelAdmin):
     model = models.Project
     list_display = ('name', 'url')
+
+@admin.register(models.SocialMedia)
+class MediaAdmin(admin.ModelAdmin):
+    modle = models.SocialMedia
+    list_display=('media_name', 'href', 'icon')

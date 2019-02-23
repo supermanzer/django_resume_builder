@@ -2,6 +2,9 @@
 # GitIgnore Configuration for ResumeApp
 #-----------------------------------------------------
 
+# Custom file variables
+.user
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
