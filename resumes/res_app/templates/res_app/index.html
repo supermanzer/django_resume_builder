@@ -14,6 +14,10 @@ The home page for the resume application
 
 {% block main %}
   <main class="dark-trans-50">
+    <ul id="user-dropdown" class="dropdown-content">
+      <li><i class="material-icons">face</i> Username: admin</li>
+      <li><i class="material-icons">lock</i> Password: pass</li>
+    </ul>
     <nav>
       <div class="nav-wrapper dark-trans-50">
         <a href="" class="brand-logo">Resume Builder</a>
@@ -21,14 +25,23 @@ The home page for the resume application
           <li><a href="/admin"><i class="material-icons">build</i></a></li>
         </ul>
         <a href="#" data-target="slide-out" class="sidenav-trigger left hide-on-large-and-up"><i class="material-icons">menu</i></a>
+        <ul class="right">
+          <li>
+            <a href="#!" data-target="user-dropdown" class="dropdown-trigger">
+              <i class="material-icons">supervisor_account</i>
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
     <ul id="slide-out" class="sidenav">
       <li><a href="/admin"><i class="material-icons">build</i> Builder Interface</a></li>
     </ul>
     <div class="container h-90">
-      <div class="js-load-div valign-wrapper h-80" data-url="{% url 'res_app:resume-list' %}">
-        <!-- Resues loaded here -->
+      <div class="valign-wrapper h-80">
+        <div class="js-load-div container" data-url="{% url 'res_app:resume-list' %}">
+          <!-- Resumes loaded here -->
+        </div>
       </div>
     </div>
 

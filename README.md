@@ -15,6 +15,11 @@ The command in the `docker-compose.yml` file will run the start_app.sh script to
 
 Then simply navigate to `localhost:8123` to start building your resume
 
+An example of an output is the EXAMPLE_RESUME.pdf file in this repo.
+
+
+
+##### <text style="color:red">Running the start_app.sh script will generate a .user file.  This is used to determine whether the default superuser account has been created.  If this file is deleted, the start_app.sh script will attempt to create a new superuser account.  This may cause the server to not to start up.</text>
 
 ## Customized Classes and Methods
 I have included a few cusomizations that I regularly employ that others might find useful.
@@ -23,4 +28,4 @@ I have included a few cusomizations that I regularly employ that others might fi
 This is a stupid simple mixin I use to simply return rendered Django templates as JSON responses.  It follows a basic methodology that I have grown used to in my work.  Rendering the template to a string is wrapped in a `try..except` block which will return a JSON response containing an `is_valid` Boolean value and either an `html` or `error` attribute depending on the success or failure of the `render_to_string` operation.
 
 #### Custom `get_pdf_stylesheets` function in view using `WeasyTemplateResponseMixin`
-I built the `Resume` model to allow users to specify the stylesheet to be applied when rendering the resume template.  Overriding the `get_pdf_stylesheets` function in the `WeasyTemplateResponseMixin` class allows me to select the stylesheet defined in the Resume model being accessed by the view. 
+I built the `Resume` model to allow users to specify the stylesheet to be applied when rendering the resume template.  Overriding the `get_pdf_stylesheets` function in the `WeasyTemplateResponseMixin` class allows me to select the stylesheet defined in the Resume model being accessed by the view.
