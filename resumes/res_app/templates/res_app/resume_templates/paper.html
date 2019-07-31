@@ -4,6 +4,7 @@ res_app/resume_templates/paper.html
 #################################################################
 A resume template based on the example provided by Tom Barr in https://github.com/Tombarr/html-resume-template/
 -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -15,9 +16,9 @@ A resume template based on the example provided by Tom Barr in https://github.co
   </head>
   <body>
     <section class="sheet">
-      <aside class="grey lighten-2">
+      <aside class="">
         <section class="contact-info">
-          <h6 class="contact">Contact</h6>
+          <h5 class="contact">Contact</h5>
             <ul class="blank">
               <li><i class="fas fa-map-marker-alt"></i> {{resume.person.contactinfo_set.first.address.city}}{% if resume.person.contactinfo_set.first.address.state %}, {{resume.person.contactinfo_set.first.address.state}}
               {% endif %}</li>
@@ -27,9 +28,19 @@ A resume template based on the example provided by Tom Barr in https://github.co
             </ul>
         </section>
         <section class="ksas">
-          <h6 class="ksas"></h6>
+            <h5>Technical Skills</h5>
+            <ul>
+              {% for t in tech %}
+                <li>{{t.name}} - {{t.years}}</li>
+              {% endfor %}
+            </ul>
+            <h5>Abilities</h5>
+            <ul>
+              {% for s in skills %}
+                <li>{{s.name}} - {{s.years}}</li>
+              {% endfor %}
+            </ul>
         </section>
-
       </aside>
       <section class="main">
         <header>
@@ -45,7 +56,7 @@ A resume template based on the example provided by Tom Barr in https://github.co
              {% if forloop.first %}
               <h5>Experience</h5>
              {% endif %}
-              <span><h6 class='left'>{{emp.employer}}</h6><text class="right"></text></span>
+              <h5><span class="align-left">{{emp.employer}}</span> <span class="align-right">{{emp.get_start_date}} - {{emp.get_end_date}}</span></h5>
              {% if forloop.last %}
               <hr>
              {% endif %}

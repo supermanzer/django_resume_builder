@@ -10,11 +10,11 @@ from django.template.loader import render_to_string
 
 class JsonTemplateMixin:
     """
-    A mixnin for returning a rendered template as a JSON response,
+    A mixin for returning a rendered template as a JSON response,
     along with a value to indicate to a calling function whether the
     rendering was successful or not.
     """
-    # TODO(ryan@gensci.org) Write tests and functions to ensure this approach works for default Django form handling (i.e. returning rendered for with error messages when it fails validation). 
+    # TODO(ryan@gensci.org) Write tests and functions to ensure this approach works for default Django form handling (i.e. returning rendered form with error messages when it fails validation).
     def render_to_response(self, context, **response_kwargs):
         """
         Directly overriding the render_to_response function. Inherit like you mean it!

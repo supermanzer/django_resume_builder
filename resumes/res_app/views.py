@@ -52,3 +52,9 @@ class ResumeList(JsonTemplateMixin, generic.ListView):
     """
     model = User
     template_name = 'res_app/resume_list.html'
+
+    # Filtering the user list to only those with resumes.
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['user_list'] = User.objects.filter(resume__isnull=False).distinct()
+        return context

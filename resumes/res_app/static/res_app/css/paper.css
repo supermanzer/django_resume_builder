@@ -1,6 +1,6 @@
 /* Paper CSS: https://github.com/cognitom/paper-css */
 
-@page { margin: 0 }
+@page { margin: 0.1rem }
 body { margin: 0 }
 .sheet {
   margin: 0;
@@ -47,4 +47,22 @@ body.legal.landscape  .sheet { width: 357mm; height: 215mm }
   body.letter, body.legal    { width: 216mm }
   body.letter.landscape      { width: 280mm }
   body.legal.landscape       { width: 357mm }
+}
+
+
+/*
+-----------------------------------------------------------
+         SPACING AND ALIGNMNET STYLE RULES
+-----------------------------------------------------------
+*/
+
+aside {
+  width: 33.33%;
+  float: left;
+  background-color: #d1d6db;
+  border-right: 2px solid black;
+}
+.main {
+/* width: 66.66% */;
+  padding-left: 2rem;
 }

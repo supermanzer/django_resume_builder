@@ -25,7 +25,7 @@ class KsaAdmin(admin.ModelAdmin):
 @admin.register(models.Employment)
 class EmploymentAdmin(admin.ModelAdmin):
     model = models.Employment
-    list_display = ('employer', 'position', 'start_date', 'end_date')
+    list_display = ('employer', 'created_by', 'position', 'start_date', 'end_date')
 
 @admin.register(models.Resume)
 class ResumeAdmin(admin.ModelAdmin):
