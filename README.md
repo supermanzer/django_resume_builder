@@ -13,7 +13,7 @@ docker-compose up -d --build
 ```
 The command in the `docker-compose.yml` file will run the start_app.sh script to perform initial migrations and spin up the development server.  In the process it will create a default superuser to get you started.  The login credentials for the default superuser can be found in the Default User dropdown menu in the navbar on the home page.
 
-Then simply navigate to `localhost:8123` to start building your resume
+Then simply navigate to `localhost:8123` to start building your resume.  You can monitor the output from the Django development server using this command: `docker logs -f resume_app`.
 
 An example of an output is the EXAMPLE_RESUME.pdf file in this repo.
 
